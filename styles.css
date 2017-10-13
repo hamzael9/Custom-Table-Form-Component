@@ -1,0 +1,48 @@
+
+        .data-table {
+                border-spacing: 5px;
+                width: 100%;
+        }
+        .data-table, .data-table th, .data-table td {
+                height: 50px;
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+        }
+        .data-table tr {
+            cursor: pointer;
+        }
+
+        .data-table tr.hidden, .data-table td.hidden, .data-table th.hidden{
+            display: none;
+        }
+
+        .data-table tr:hover {
+            background-color: rgba(119,195,239,.2);
+        }
+
+        .data-table tr:first-child { /* trick so that hover doesn't affect table head */
+            cursor: inherit;
+            background-color: transparent;
+        }
+
+        .data-table tr.selected {
+            background-color: rgba(119,195,239,.7);
+        }
+
+        .data-table-filter {
+            position: relative;
+            height: 30px;
+        }
+        .data-table-filter .filter-input {
+            padding: 0 10px;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        form.custom-form {
+            border: 1px solid black;
+        }

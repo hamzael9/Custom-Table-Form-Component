@@ -1,0 +1,107 @@
+ <!DOCTYPE html>
+ <html>
+
+<head>
+    <title>Test</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+
+    <style>
+        div {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        /*
+        table {
+            width: 100%;
+        }
+        */
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Test Custom Table</h1>
+
+    <div>
+        <label>Filter table elements : </label>
+        <input type="text" id="filter-input"/>
+    </div>
+
+    <div>
+
+        <table id="mytable" class="data-table">
+
+            <tr data-id="1">
+                <th>Name</th> <th>Country</th> <th>City</th>
+            </tr>
+
+            <tr data-id="2">
+                <td class="field-name">Hamza</td><td class="field-country">Morocco</td><td class="field-city">Agadir</td>
+            </tr>
+            <tr data-id="3">
+                <td class="field-name">Laura</td><td class="field-country">Germany</td><td class="field-city">Frankfort</td>
+            </tr>
+            <tr data-id="4">
+                <td class="field-name">Henry</td><td class="field-country">Britain</td><td class="field-city">London</td>
+            </tr>
+            <tr data-id="5">
+                <td class="field-name">Sarah</td><td class="field-country">USA</td><td class="field-city">Boston</td>
+            </tr>
+            <tr data-id="6">
+                <td class="field-name">Nikolay</td><td class="field-country">Russia</td><td class="field-city">Moscow</td>
+            </tr>
+            <tr data-id="7">
+                <td class="field-name">Lee</td><td class="field-country">China</td><td class="field-city">Shenzen</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <div>
+        <form id="myform" action="url/to/add">
+            <label>Name</label>
+            <input id="form-name" type="text" name="name" placeholder="enter name" />
+            <label>Country</label>
+            <input id="form-country" type="text" name="country" placeholder="enter country" />
+            <label>City</label>
+            <input id="form-city" type="text" name="city" placeholder="enter city" />
+            <button type="submit">Do Something</button>
+            <button type="submit" class="clear-btn">Clear</button>
+            <button type="submit" class="delete-btn">delete</button>
+        </form>
+    </div>
+
+
+
+<script src="CustomTableComponent.js"></script>
+<script src="CustomFormComponent.js"></script>
+ <script>
+     
+     const tableToWatch = document.getElementById('mytable');
+     const formToWatch = document.getElementById('myform');
+     const filterInput = document.getElementById('filter-input');
+
+     const customTable = new CustomTableComponent(tableToWatch, filterInput);
+
+     const customForm = new CustomFormComponent(formToWatch,
+                                                'url/to/edit/',
+                                                'url/to/delete', 
+                                                () => { customTable.clearTableSelections(); }
+                                            );
+
+     customTable.form = customForm;
+ </script>   
+
+
+</body>
+
+ </html>
